@@ -11,10 +11,11 @@
    createDivWithText('loftschool') // создаст элемент div, поместит в него 'loftschool' и вернет созданный элемент
  */
 function createDivWithText(text) {
-  const element = document.createElement('div');
-  element.textContent = text;
-  return element;
-    
+    const element = document.createElement('div');
+
+    element.textContent = text;
+
+    return element;    
 }
 
 /*
@@ -26,8 +27,9 @@ function createDivWithText(text) {
  Пример:
    prepend(document.querySelector('#one'), document.querySelector('#two')) // добавит элемент переданный первым аргументом в начало элемента переданного вторым аргументом
  */
+
 function prepend(what, where) {
-  where.insertBefore(what, where.firstChild);
+    where.insertBefore(what, where.firstChild);
 }
 
 /*
@@ -56,13 +58,13 @@ function findAllPSiblings(where) {
     let children = where.children;
   
     for (var i = 0; i < children.length - 1; i++) {
-      if (children[i].nextElementSibling.tagName === 'P') {
-        array.push(children[i]);
-      }
+          if (children[i].nextElementSibling.tagName === 'P') {
+            array.push(children[i]);
+        }
     }
   
     return array;
-  }
+}
 
 /*
  Задание 4:
@@ -104,11 +106,11 @@ function findError(where) {
    должно быть преобразовано в <div></div><p></p>
  */
 function deleteTextNodes(where) {
-  for (let N of where.childNodes) {
-    if (N.nodeType===3) {
-      where.removeChild(N);
+    for (let N of where.childNodes) {
+        if (N.nodeType===3) {
+            where.removeChild(N);
+        }
     }
-  }
 }
 
 /*
@@ -124,15 +126,15 @@ function deleteTextNodes(where) {
    должно быть преобразовано в <span><div><b></b></div><p></p></span>
  */
 function deleteTextNodesRecursive(where) {
-  for (let N of [...where.childNodes]) {
-    if (N && N.nodeType===3) {
-      where.removeChild(N);
-    }
+    for (let N of [...where.childNodes]) {
+        if (N && N.nodeType===3) {
+            where.removeChild(N);
+        }
 
-    else if (N && N.hasChildNodes) {
-      deleteTextNodesRecursive(N);  
-    }
-  } 
+        else if (N && N.hasChildNodes) {
+            deleteTextNodesRecursive(N);  
+        }
+    } 
 }
 
 /*
