@@ -109,7 +109,7 @@ function returnBadArguments(fn, ...rest) {
    - number не является числом (с текстом "number is not a number")
    - какой-либо из аргументов div является нулем (с текстом "division by 0")
  */
-function calculator(number=0) {
+function calculator(number = 0) {
   
     if (!isFinite(number)) {
         throw new Error ('number is not a number')
@@ -118,7 +118,7 @@ function calculator(number=0) {
     return {
         sum: function(...rest1) {
             for (let I of rest1) {
-                number = number - I;
+                number = number + I;
             } 
 
             return number;
